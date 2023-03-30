@@ -17,9 +17,15 @@ def match(match_id):
 
     return {"message": msg, "elapsedTime": end - start}, 200
 
-# okay so alds gotta make this code much more optimized
+# backup optimization for the matchid search
 
+# def is_match(fave_numbers_1, fave_numbers_2):
+#    set1 = set(fave_numbers_1)
+#    set2 = set(fave_numbers_2)
+#    return set2.issubset(set1)
 def is_match(fave_numbers_1, fave_numbers_2):
-    set1 = set(fave_numbers_1)
-    set2 = set(fave_numbers_2)
-    return set2.issubset(set1)
+    for number in fave_numbers_2:
+        if number not in fave_numbers_1:
+            return False
+
+    return True
